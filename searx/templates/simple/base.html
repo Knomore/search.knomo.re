@@ -27,8 +27,8 @@
   {% block head %}
   <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}"/>
   {% endblock %}
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="https://cdn.knomo.re/search/favicon.png" sizes="any">
+  <link rel="icon" href="https://cdn.knomo.re/search/favicon.svg" type="image/svg+xml">
 </head>
 <body class="{{ endpoint }}_endpoint" >
   <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
@@ -48,11 +48,6 @@
       {%- block linkto_about -%}
         <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle-outline') }}<span>{{ _('About') }}</span></a>
       {%- endblock -%}
-      {%- block linkto_donate -%}
-        {%- if donation_url -%}
-        <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
-        {%- endif -%}
-      {%- endblock -%}
     </nav>
     {% block header %}
     {% endblock %}
@@ -61,15 +56,7 @@
   </main>
   <footer>
     <p>
-    Powered by <a href="https://docs.searxng.org/">Searxng</a> and the <a href="https://llama.horse">llama.horse</a> network<br/>
-        | <a href="{{ get_setting('brand.issue_url') }}">{{ _('Issue tracker') }}</a>
-        {% if enable_metrics %}| <a href="{{ url_for('stats') }}">{{ _('Engine stats') }}</a>{% endif %}
-        {% if get_setting('general.privacypolicy_url') %}
-        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
-        {% endif %}
-        {% if get_setting('general.contact_url') %}
-        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact instance maintainer') }}</a>
-        {% endif %}
+    Powered by <a href="https://docs.searxng.org/">Searxng</a> and the <a href="https://llama.horse">llama.horse</a> network.<br/>
     </p>
   </footer>
   <!--[if gte IE 9]>-->
